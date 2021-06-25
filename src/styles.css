@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
+
+:root {
+    --main-bg-color: #101820;
+    --main-text-color: #F2AA4C;
+    --text: #aaaaaa;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#root {
+    font-size: 16px;
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--main-bg-color);
+    color: var(--text);
+}
+
+.container {
+    height: 100%;
+    padding: 4.5rem 0.2rem 1rem 0.2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#error {
+    position: absolute;
+    color: rgb(167, 71, 71);
+}
+
+.moviePreview {
+    width: 140px;
+    height: 200px;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.previewImage {
+    border-radius: 5px;
+    height: auto;
+    width: auto;
+    max-width: 100%;
+    max-height: 200px;
+}
+
+.previewImage:hover {
+    border: 2px solid white;
+}
+
+
+.loadingImg {
+    position: absolute;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 10vh;
+}
+
+#search {
+    position: absolute;
+    border: 1px solid var(--text);
+    color: var(--text);
+    transition: top 0.65s ease-out;
+    border-radius: 5px;
+    width: 75%;
+    text-align: center;
+}
+
+#search:focus {
+    border: 1px solid #7570a1;
+}
+
+.centered {        
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);    
+}
+
+.search-top {
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+input {
+    padding: 1rem 0.5rem;
+    background: none;
+    border: none;
+}
+
+input:focus {
+    border: none;
+    outline: none;
+}
+
