@@ -13,19 +13,23 @@
 }
 
 #root {
-    font-size: 16px;
+    font-size: 21px;
     min-height: 100vh;
     font-family: 'Roboto', sans-serif;
     background-color: var(--main-bg-color);
     color: var(--text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
+    width: max-content;
     height: 100%;
-    padding: 4.5rem 0.2rem 1rem 0.2rem;
+    padding: 5.2rem 0.2rem 1rem 0.2rem;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 #error {
@@ -34,11 +38,9 @@
 }
 
 .moviePreview {
-    width: 140px;
-    height: 200px;
+    width: 45vw;
     margin-bottom: 1rem;
-    border-radius: 5px;
-    padding: 2px;
+    padding: 4px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,11 +51,12 @@
     height: auto;
     width: auto;
     max-width: 100%;
-    max-height: 200px;
+    max-height: 100%;
 }
 
 .previewImage:hover {
     border: 2px solid white;
+    cursor: pointer;
 }
 
 
@@ -73,6 +76,7 @@
     border-radius: 5px;
     width: 75%;
     text-align: center;
+    font-size: 21px;
 }
 
 #search:focus {
@@ -102,3 +106,34 @@ input:focus {
     outline: none;
 }
 
+@media only screen and (min-width: 500px)
+{
+    
+.moviePreview {
+    width: 30vw;
+}
+}
+
+@media only screen and (min-width: 900px)
+{
+    
+.moviePreview {
+    width: 20vw;
+}
+}
+
+@media only screen and (min-width: 1300px)
+{
+    
+.moviePreview {
+    width: 18vw;
+}
+}
+
+@media only screen and (min-width: 1300px)
+{
+    
+.moviePreview {
+    width: 15vw;
+}
+}

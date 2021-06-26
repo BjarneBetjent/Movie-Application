@@ -12,10 +12,10 @@ const App = () =>
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-/**
- * Runs when search state is changed.
- * Updates searchResult state based on response from server
- */
+  /**
+   * Runs when search state is changed.
+   * Updates searchResult state based on response from server
+   */
   useEffect(() =>
   {
     async function fetchData ()
@@ -26,7 +26,7 @@ const App = () =>
       try
       {
         const movieResult = await getMovies(search);
-        setSearchResult(movieResult);                
+        setSearchResult(movieResult);
       }
       catch (error)
       {
@@ -53,12 +53,12 @@ const App = () =>
 
   return (
     <div className="container">
-      {(loading && <img className="loadingImg centered" src={loadingImg} alt="loading icon" />)
-        || (searchResult && searchResult.map(movie => <MoviePreview key={movie.id} movie={movie} />))
-      }
-      {error && <p className="centered" id="error">{error}</p>}
-      <input id="search" className="centered" placeholder="Search Movie" onChange={searchOnChange} value={search} autoComplete="off"></input>
-      {/* <p id="attribution">This product uses the TMDb API but is not endorsed or certified by TMDb.</p> */}
+        {(loading && <img className="loadingImg centered" src={loadingImg} alt="loading icon" />)
+          || (searchResult && searchResult.map(movie => <MoviePreview key={movie.id} movie={movie} />))
+        }
+        {error && <p className="centered" id="error">{error}</p>}
+        <input id="search" className="centered" placeholder="Search Movie" onChange={searchOnChange} value={search} autoComplete="off"></input>
+        {/* <p id="attribution">This product uses the TMDb API but is not endorsed or certified by TMDb.</p> */}
     </div>
   );
 }
