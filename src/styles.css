@@ -90,7 +90,7 @@
 }
 
 .search-top {
-    top: 1rem;
+    top: 1.5rem;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -104,6 +104,13 @@ input {
 input:focus {
     border: none;
     outline: none;
+}
+
+.tmdb{
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    font-size: 12px;
 }
 
 @media only screen and (min-width: 500px)

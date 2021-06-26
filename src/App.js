@@ -12,6 +12,8 @@ const App = () =>
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  console.log(`Making requests to port: `, process.env.PORT);
+  
   /**
    * Runs when search state is changed.
    * Updates searchResult state based on response from server
@@ -53,6 +55,7 @@ const App = () =>
 
   return (
     <div className="container">
+    <div className="tmdb">All movie info is gathered from themoviedb.org</div>
         {(loading && <img className="loadingImg centered" src={loadingImg} alt="loading icon" />)
           || (searchResult && searchResult.map(movie => <MoviePreview key={movie.id} movie={movie} />))
         }
