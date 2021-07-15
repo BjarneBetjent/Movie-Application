@@ -6,10 +6,7 @@ import MoviePreview from "./moviePreview";
 export default function SearchResult ({ searchResult, status })
 {
 
-    const {state, error} = status;
-    console.log("status", status);
-    console.log(`STATE`, state);
-    
+    const {state, error} = status;    
 
     if (state === "idle")
     {
