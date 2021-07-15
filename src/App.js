@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import "./styles.css";
 
 
@@ -13,38 +13,43 @@ const App = () =>
   const [search, setSearch] = useState("");
   const [searchResult, setSearchResult] = useState(null);
 
-  const searchMovies = useCallback(
-    debounce(async function fetchData ()
+  /**
+   * Search for movies with the given search term
+   */
+  const searchMovies = useCallback(async () =>
+  {
+    try
     {
-      try
-      {
-        console.log(`SEARECHSTRING`, search);
-        
-        const movieResult = await getMovies(search);
-        setSearchResult(movieResult);
-        setStatus({ state: "resolved" });
-      }
-      catch (error)
-      {
-        //setSearchResult(null);
-        setStatus({ state: "error", error });
-      }
-    }, 1500)
-    , [search]);
+      const movieResult = await getMovies(search);
+      setSearchResult(movieResult);
+      setStatus({ state: "resolved" });
+    }
+    catch (error)
+    {
+      setStatus({ state: "error", error });
+    }
+  }, [search])
+
+  /**
+   * Debouced version of the searchMovies function 
+   * to avoid unnecessary server requests
+   */
+  const debouncedSearchMovies = useMemo(() =>
+  {
+    return debounce(searchMovies, 500);
+  }, [searchMovies]);
 
 
   /**
    * Runs when search state is changed.
-   * Updates searchResult state based on response from server
    */
   useEffect(() =>
   {
     if (search.length < 1) return;
     setStatus({ state: "pending" });
 
-    //Debounce
-    searchMovies();
-  }, [search, searchMovies]);
+    debouncedSearchMovies();
+  }, [debouncedSearchMovies, search]);
 
   /**
    * Move the search bar to the top if currently centered
