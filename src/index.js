@@ -4,7 +4,8 @@ import axios from "axios";
 
 import App from './App';
 
-/* axios.defaults.baseURL = "http://localhost:5001"; */
+// Only for local development
+axios.defaults.baseURL = "http://localhost:5001";
 
 ReactDOM.render(
   <React.StrictMode>
