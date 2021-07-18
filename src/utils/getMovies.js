@@ -19,6 +19,6 @@ export const getMovies = async (searchString = "") =>
     catch (error)
     {      
         //throw error.response.data;
-        throw "Unable to find movie";
+        throw new Error("Unable to find movie");
     }
 }
