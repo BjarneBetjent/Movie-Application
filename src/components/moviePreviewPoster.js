@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function MoviePreview ({ movie })
+export default function MoviePreviewPoster ({ movie })
 {
     const imgURL = `http://image.tmdb.org/t/p/w342/${movie.posterPath}`;
     const altText = `Poster from the movie ${movie.title}`;

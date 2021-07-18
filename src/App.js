@@ -1,55 +1,44 @@
-import { useState, useEffect, useMemo, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
+import { useDebounce } from "use-debounce";
 import "./styles.css";
 
 
 import SearchResult from "./components/searchResult";
 import { getMovies } from "./utils/getMovies";
-import { debounce } from "./utils/debounce";
-
 
 const App = () =>
 {
   const [status, setStatus] = useState({ state: "idle", error: null });
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("");  
   const [searchResult, setSearchResult] = useState(null);
 
-  /**
-   * Search for movies with the given search term
-   */
-  const searchMovies = useCallback(async () =>
-  {
-    try
-    {
-      const movieResult = await getMovies(search);
-      setSearchResult(movieResult);
-      setStatus({ state: "resolved" });
-    }
-    catch (error)
-    {
-      setStatus({ state: "error", error });
-    }
-  }, [search])
-
-  /**
-   * Debouced version of the searchMovies function 
-   * to avoid unnecessary server requests
-   */
-  const debouncedSearchMovies = useMemo(() =>
-  {
-    return debounce(searchMovies, 500);
-  }, [searchMovies]);
+  const [debouncedSearch] = useDebounce(search, 600);
 
 
   /**
-   * Runs when search state is changed.
+   * Makes server request based on the search string 600ms after the user 
+   * stops typing. 
    */
   useEffect(() =>
-  {
-    if (search.length < 1) return;
-    setStatus({ state: "pending" });
+  {    
+    const searchMovies = async () =>
+    {      
+      try
+      {
+        const movieResult = await getMovies(debouncedSearch);
+        setSearchResult(movieResult);
+        setStatus({ state: "resolved" });
+      }
+      catch (error)
+      {
+        setStatus({ state: "error", error });
+      }
+    }
+    
+    if (debouncedSearch.length < 1) return;
 
-    debouncedSearchMovies();
-  }, [debouncedSearchMovies, search]);
+    searchMovies();
+  }, [debouncedSearch])
 
   /**
    * Move the search bar to the top if currently centered
@@ -58,8 +47,10 @@ const App = () =>
    */
   const searchOnChange = (event) =>
   {
-    if (event.target.className === "centered") event.target.className = "search-top";
+    if (event.target.className === "centered") event.target.className = "search-top";    
     setSearch(event.target.value);
+    if(event.target.value.length === 0) setStatus({state: "idle"});
+    else setStatus({ state: "pending" });
   }
 
   return (
