@@ -6,7 +6,6 @@ import Movie from "./components/movie";
 
 const App = () =>
 {
-    // Store state for search and movie here to send it to the components? 
     const [search, setSearch] = useState("");
     const [movie, setMovie] = useState(null);
 

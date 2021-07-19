@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function MoviePreviewPoster ({setMovie, movie })
 {
-    const imgURL = `http://image.tmdb.org/t/p/w342/${movie.posterPath}`;
+    const imgURL = `https://image.tmdb.org/t/p/w342/${movie.posterPath}`;
     const altText = `Poster from the movie ${movie.title}`;
     return (
         <div className="moviePreview">

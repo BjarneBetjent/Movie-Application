@@ -25,10 +25,11 @@
 
 .wrapper {
     height: 100%;
-    padding: 6rem 0.2rem 1rem 0.2rem;
+    padding: 0.5rem 0.2rem 1rem 0.2rem;
 }
 
 .search-container {    
+    padding-top: 6rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -60,7 +61,6 @@
     border: 2px solid white;
     cursor: pointer;
 }
-
 
 .loadingImg {
     position: absolute;
@@ -115,11 +115,69 @@ input:focus {
     font-size: 12px;
 }
 
+/* Movie page */
+
+.movie {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.moviePoster {
+    display: flex;
+    justify-content: center;
+    width: 50vw;
+    height: auto;
+}
+
+.posterImage {
+    border-radius: 5px;
+    height: auto;
+    width: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.smallTopMargin {
+    margin-top: 0.5rem;
+}
+
+.orgTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.title {
+    font-size: 1.2rem;
+    display: block;
+}
+
+.hiddenContent {
+    display: none;
+}
+
+.releaseDate {
+    font-size: 1.2rem;
+    display: block;
+}
+
+.overview {
+    font-size: 1rem;
+    margin: 0.5rem 1rem 0 1rem;
+}
+
 @media only screen and (min-width: 500px)
 {
     
 .moviePreview {
     width: 30vw;
+}
+}
+
+@media only screen and (min-width: 650px)
+{
+.movie {
+    margin: 0 3rem 0 3rem;
 }
 }
 
@@ -129,6 +187,9 @@ input:focus {
 .moviePreview {
     width: 20vw;
 }
+.movie {
+    margin: 0 8rem 0 8rem;
+}
 }
 
 @media only screen and (min-width: 1300px)
@@ -137,12 +198,18 @@ input:focus {
 .moviePreview {
     width: 18vw;
 }
+.movie {
+    margin: 0 12rem 0 12rem;
+}
 }
 
-@media only screen and (min-width: 1300px)
+@media only screen and (min-width: 1450px)
 {
     
 .moviePreview {
     width: 15vw;
+}
+.movie {
+    margin: 0 17rem 0 17rem;
 }
 }
