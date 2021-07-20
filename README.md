@@ -7,14 +7,15 @@ Created with React, HTML and CSS.
 
 Mobile view
 
-![Searchbar](./screenshots/mob1.png)
-![Searchpage](./screenshots/mob2.png)
-![Summarypage](./screenshots/mob3.png)
+![Search bar](./screenshots/mob1.PNG)
+![](./screenshot.jpg)
+![Search page](./screenshots/mob2.png)
+![Summary page](./screenshots/mob3.png)
 
 Desktop view
 
-![Searchpage](./screenshots/desk1.png)
-![](./screenshots/desk2.png)
+![Search page](./screenshots/desk1.png)
+![Summary page](./screenshots/desk2.png)
 
 ## Installation 
 
