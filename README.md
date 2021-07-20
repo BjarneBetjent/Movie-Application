@@ -9,13 +9,13 @@ Mobile view
 
 ![Search bar](./screenshots/mob1.PNG)
 ![](./screenshot.jpg)
-![Search page](./screenshots/mob2.png)
-![Summary page](./screenshots/mob3.png)
+![Search page](./screenshots/mob2.PNG)
+![Summary page](./screenshots/mob3.PNG)
 
 Desktop view
 
-![Search page](./screenshots/desk1.png)
-![Summary page](./screenshots/desk2.png)
+![Search page](./screenshots/desk1.PNG)
+![Summary page](./screenshots/desk2.PNG)
 
 ## Installation 
 
