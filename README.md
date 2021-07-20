@@ -14,7 +14,7 @@ Mobile view
 Desktop view
 
 ![Searchpage](./screenshots/desk1.png)
-![Summarypage](./screenshots/desk2.png)
+![](./screenshots/desk2.png)
 
 ## Installation 
 
